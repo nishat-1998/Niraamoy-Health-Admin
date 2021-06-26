@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useState,Component} from 'react';
+import Select from 'react-select';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Admin = () => {
@@ -23,14 +24,14 @@ const Admin = () => {
       formData.append('group', info.group);
       formData.append('company', info.company);
       formData.append('type', info.type);
-      formData.append('regular', info.regular);
+      formData.append('regular',info.regular);
       formData.append('selling', info.selling);
-      formData.append('pieces', info.pieces);
       formData.append('size', info.size);
+      formData.append('mg', info.mg);
       formData.append('quantity', info.quantity);
 
 
-      fetch('https://agile-refuge-26610.herokuapp.com/addProduct', {
+      fetch('http://localhost:5055/addProduct', {
           method: 'POST',
           body: formData
       })
@@ -42,6 +43,17 @@ const Admin = () => {
               console.error(error)
           })
   }
+
+ /* const Companies = [
+    { label: "Square Pharmaceuticals Ltd.", value: 355 },
+    { label: "Ziska Pharmaceuticals Ltd.", value: 54 },
+    { label: "Beximco Pharmaceuticals Ltd.", value: 43 },
+    { label: "Sun Pharmaceutical Ltd.", value: 61 },
+    { label: "ACI Limited", value: 965 },
+    { label: "ACME Laboratories Ltd.", value: 46 },
+    { label: "Aristopharma Ltd.", value: 58 }
+  ];
+  */
   
     
     return (
@@ -58,13 +70,23 @@ const Admin = () => {
                   <label htmlFor="exampleInputPassword1">Group Name</label>
                   <input onBlur={handleBlur} type="text" className="form-control" name="group" placeholder="Group Name" />
               </div>
+            <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Company Name</label><br></br>
+                <select onBlur={handleBlur} type="drop-down" className="form-control" name="company">
+                    <option value="">--Select--</option>
+                    <option value="Square Pharmaceuticals Ltd.">Square Pharmaceuticals Ltd.</option>
+                    <option value="Beximco Pharmaceuticals Ltd.">Beximco Pharmaceuticals Ltd.</option>
+                    <option value="ACI Limited">ACI Limited</option>
+                </select> <br></br>
+                </div>      
+                 
               <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Company Name</label>
-                  <input onBlur={handleBlur} type="text" className="form-control" name="company" placeholder="Company Name" />
-              </div>
-              <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Type</label>
-                  <input onBlur={handleBlur} type="text" className="form-control" name="type" placeholder="Type" />
+                  <label htmlFor="exampleInputPassword1">Type</label><br></br>
+                  <select onBlur={handleBlur} type="drop-down" className="form-control" name="type">
+                    <option value="">--Select--</option>
+                    <option value="Capsul"> Capsul</option>
+                    <option value="Tablet">Tablet</option>
+                </select><br></br>
               </div>
               <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Regular price</label>
@@ -75,16 +97,16 @@ const Admin = () => {
                   <input onBlur={handleBlur} type="text" className="form-control" name="selling" placeholder="Selling Price" />
               </div>
               <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Pack Pieces</label>
-                  <input onBlur={handleBlur} type="text" className="form-control" name="pieces" placeholder="Pack Pieces" />
-              </div>
-              <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Pack size</label>
                   <input onBlur={handleBlur} type="text" className="form-control" name="size" placeholder="Pack size" />
               </div>
               <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Quantity</label>
                   <input onBlur={handleBlur} type="text" className="form-control" name="quantity" placeholder="Quantity" />
+              </div>
+              <div className="form-group">
+                  <label htmlFor="exampleInputPassword1">Mg</label>
+                  <input onBlur={handleBlur} type="text" className="form-control" name="mg" placeholder="Mg" />
               </div>
               <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Upload a image</label>

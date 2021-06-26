@@ -6,7 +6,7 @@ const Manage = () => {
     const [manage, setManage] = useState([])
 
     useEffect(() =>{
-        fetch('https://agile-refuge-26610.herokuapp.com/')
+        fetch('https://immense-depths-47841.herokuapp.com/')
         .then(res => res.json())
         .then(data => setManage(data))
     }, [manage])

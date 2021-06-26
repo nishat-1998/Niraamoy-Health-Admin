@@ -9,7 +9,7 @@ const ManageProduct = (props) => {
 
 
     const handleDeleteProduct = (id) =>{
-        fetch(`https://agile-refuge-26610.herokuapp.com/${id}`,{     
+        fetch(`https://immense-depths-47841.herokuapp.com/${id}`,{     
             method: 'DELETE',
         })
         .then(res => res.json())
