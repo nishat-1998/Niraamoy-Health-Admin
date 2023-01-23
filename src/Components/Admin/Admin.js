@@ -68,7 +68,11 @@ const Admin = () => {
               </div>
               <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Group Name</label>
-                  <input onBlur={handleBlur} type="text" className="form-control" name="group" placeholder="Group Name" />
+                  <select onBlur={handleBlur} type="drop-down" className="form-control" name="group">
+                    <option value="">--Select--</option>
+                    <option value="Paracetamol">Paracetamol</option>
+                    <option value="Ranidin">Ranidin</option>
+                    </select>
               </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Company Name</label><br></br>
@@ -77,7 +81,7 @@ const Admin = () => {
                     <option value="Square Pharmaceuticals Ltd.">Square Pharmaceuticals Ltd.</option>
                     <option value="Beximco Pharmaceuticals Ltd.">Beximco Pharmaceuticals Ltd.</option>
                     <option value="ACI Limited">ACI Limited</option>
-                </select> <br></br>
+                </select> 
                 </div>      
                  
               <div className="form-group">
@@ -86,7 +90,7 @@ const Admin = () => {
                     <option value="">--Select--</option>
                     <option value="Capsul"> Capsul</option>
                     <option value="Tablet">Tablet</option>
-                </select><br></br>
+                </select>
               </div>
               <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Regular price</label>
